@@ -17,3 +17,5 @@
 The data was crawled from the ShopeeFood website and stored in a PostgreSQL database to facilitate further analysis.
 
 ## Dashboard
+- [Restaurant dashboard](https://studenthcmusedu-my.sharepoint.com/:u:/g/personal/21120475_student_hcmus_edu_vn/EZDO_z1z6yJPu-bL7HSa9pQBRWxodLEVuFo_YAXq7rTfmg?e=LnQveg)
+- [Menu dashboard](https://menu-dashboard.streamlit.app/)
