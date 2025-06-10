@@ -18,8 +18,10 @@ load_dotenv()
 HOST = os.getenv("HOST")
 PORT = os.getenv("PORT")
 DATABASE = os.getenv("DATABASE")
-USER = os.getenv("USER")
+USER = os.getenv("DB_USER")
 PASSWORD = os.getenv("PASSWORD")
+
+print(USER)
 
 st.set_page_config(
     page_title="Dashboard",
