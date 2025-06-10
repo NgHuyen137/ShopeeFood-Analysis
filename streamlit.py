@@ -1,7 +1,8 @@
 import psycopg2
 import pandas as pd
 import ast
-import re
+import os
+from dotenv import load_dotenv
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
@@ -13,6 +14,13 @@ import altair as alt
 import plotly.express as px
 # from wordcloud import WordCloud
 
+load_dotenv()
+HOST = os.getenv("HOST")
+PORT = os.getenv("PORT")
+DATABASE = os.getenv("DATABASE")
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
+
 st.set_page_config(
     page_title="Dashboard",
     page_icon="📊",
@@ -21,7 +29,7 @@ st.set_page_config(
 )
 
 @st.cache_resource
-def connect_to_azure_postgres(host, database, user, password, port=5432):
+def connect_to_azure_postgres(host, database, user, password, port):
     try:
         conn = psycopg2.connect(
             host=host,
@@ -38,11 +46,12 @@ def connect_to_azure_postgres(host, database, user, password, port=5432):
         return None   
 
 # Kết nối đến PostgreSQL
-host = "shopee.postgres.database.azure.com"
-database = "delivery_info"
-user = "Numpy"
-password = "!Namphuong592003"
-conn = connect_to_azure_postgres(host, database, user, password)
+host = HOST
+database = DATABASE
+user = USER
+password = PASSWORD
+port = PORT
+conn = connect_to_azure_postgres(host, database, user, password, port)
 
 @st.cache_data
 def preprocess_menu(menu_df: pd.DataFrame) -> pd.DataFrame:
