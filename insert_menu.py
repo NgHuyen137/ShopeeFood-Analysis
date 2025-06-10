@@ -1,8 +1,16 @@
+import os
 import csv
 import psycopg2
-
+from dotenv import load_dotenv
 
 csv_file_path = '/home/phuonn/Shopee_food/UDPTDLTM_DATA/data/menu_data.csv'
+
+load_dotenv()
+HOST = os.getenv("HOST")
+PORT = os.getenv("PORT")
+DATABASE = os.getenv("DATABASE")
+USER = os.getenv("USER")
+PASSWORD = os.getenv("PASSWORD")
 
 def split_csv_file(input_file_path, num_splits=5):
     split_files = []
@@ -30,7 +38,7 @@ def split_csv_file(input_file_path, num_splits=5):
         print(e)
     return split_files
 
-def connect_to_azure_postgres(host, database, user, password, port=5432):
+def connect_to_azure_postgres(host, database, user, password, port):
     try:
         conn = psycopg2.connect(
             host=host,
@@ -49,11 +57,12 @@ def connect_to_azure_postgres(host, database, user, password, port=5432):
 def load_data_to_postgres(csv_files):
     try:
         # Kết nối đến PostgreSQL
-        host = "shopee.postgres.database.azure.com"
-        database = "delivery_info"
-        user = "Numpy"
-        password = "!Namphuong592003"
-        conn = connect_to_azure_postgres(host, database, user, password)
+        host = HOST
+        database = DATABASE
+        user = USER
+        password = PASSWORD
+        port = PORT
+        conn = connect_to_azure_postgres(host, database, user, password, port)
 
         for csv_file_path in csv_files:
             with conn.cursor() as cursor:

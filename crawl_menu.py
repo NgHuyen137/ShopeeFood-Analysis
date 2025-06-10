@@ -41,21 +41,6 @@ def request_dish_detail(session, restaurant_id):
     response.raise_for_status()
     return response
 
-# def get_dish_details(session, restaurant_id):
-#     """Gửi yêu cầu API và lấy thông tin món ăn cho một restaurant_id."""
-#     menu = []
-#     response = request_dish_detail(session, restaurant_id)
-#     json_data = response.json()
-
-#     # Duyệt qua từng món ăn để lấy name và discount_price/price
-#     for catalog in json_data.get("data", {}).get("catalogs", []):
-#         for dish in catalog.get("dishes", []):
-#             name = dish.get("name")
-#             price = dish.get("discount_price", dish.get("price"))
-#             if name and price:
-#                 menu.append({"name": name, "price": int(price)})
-
-#     return {'restaurant_id': restaurant_id, 'menu': menu}
 def get_dish_details(session, request_id, restaurant_id):
     """Gửi yêu cầu API và lấy thông tin món ăn cho một restaurant_id."""
     dishes_list = []

@@ -102,12 +102,6 @@ district_options = sorted(df["district"].unique().tolist())
 category_options = sorted(df["category"].unique().tolist())
 
 filtered_df = df.copy()
-# selected_districts = st.multiselect("Lọc theo Quận/Huyện", district_options)
-# selected_categories = st.multiselect("Lọc theo Loại hình quán ăn", category_options)
-# if selected_districts:
-#     filtered_df = filtered_df[filtered_df["district"].isin(selected_districts)]
-# if selected_categories:
-#     filtered_df = filtered_df[filtered_df["category"].isin(selected_categories)]
 
 with st.sidebar:
     st.title('🏙️Dashboard')
