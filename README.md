@@ -16,7 +16,4 @@
 ## Data
 The data was crawled from the ShopeeFood website and stored in a PostgreSQL database to facilitate further analysis.
 
-## Dashboards
-
-
-# ShopeeFood-Analysis
+## Dashboard
