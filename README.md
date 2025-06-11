@@ -1,5 +1,5 @@
 # ShopeeFood-Analysis
-- The goal of this project is to provide restaurant owners meaningful insights into the Food & Beverages marketing on ShopeeFood.
+- The goal of this project is to provide restaurant owners with meaningful insights into the Food & Beverages market on ShopeeFood.
 - This is an end-to-end Data Science project, including collecting, cleaning, modeling, and analyzing data to extract valuable insights.
 - The final result provides interactive dashboards for both restaurants and menus.   
 
